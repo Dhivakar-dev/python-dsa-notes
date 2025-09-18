@@ -1,329 +1,306 @@
-# Python Cheat Sheet
+# Python Cheat Sheet with Explanations
 
-## Basics
+## 1. Basics
 
+### Hello World
 ```python
-# Print Statement
-print("Hello, World!")
-
-# Variables
-x = 5
-name = "Alice"
-
-# Data Types
-int_var = 10
-float_var = 10.5
-str_var = "Hello"
-bool_var = True
-list_var = [1, 2, 3]
-tuple_var = (1, 2, 3)
-dict_var = {"a": 1, "b": 2}
-set_var = {1, 2, 3}
-NoneType = None
-
-# Type Checking
-type(x)  # <class 'int'>
-isinstance(x, int)  # True
-
-# Comments
-# Single line
-""" Multi-line
-comment """
-
-# Input
-user_input = input("Enter something: ")
-
-# Casting
-int("5")    # 5
-str(5)      # "5"
-float("5.2")# 5.2
+print("Hello, World!")  # Prints text to the console
 ```
 
-## Operators
-
+### Comments
 ```python
-# Arithmetic: +, -, *, /, //, %, **
-# Comparison: ==, !=, <, >, <=, >=
-# Logical: and, or, not
-# Assignment: =, +=, -=, *=, /=, //=, %=, **=
-# Membership: in, not in
-# Identity: is, is not
+# This is a single-line comment
+
+"""
+This is a
+multi-line comment
+"""
 ```
 
-## String Operations
-
+### Variables and Data Types
 ```python
-s = "hello"
-s.upper()           # 'HELLO'
-s.lower()           # 'hello'
-s.title()           # 'Hello'
-s.strip()           # Remove surrounding whitespace
-s.replace("l", "z") # 'hezzo'
-s.split(",")        # Split into list
-".join(['a','b']) # 'a,b'
-len(s)              # 5
-s[0]                # 'h'
-s[-1]               # 'o'
-s[1:4]              # 'ell'
+x = 10           # Integer
+y = 3.14         # Float
+name = "Alice"   # String
+is_valid = True  # Boolean
 ```
 
-## Lists
-
+### Multiple Assignment
 ```python
-lst = [1, 2, 3]
-lst.append(4)
-lst.insert(1, 10)
-lst.remove(3)
-lst.pop()           # Removes last
-lst[0] = 100
-lst2 = lst + [5, 6]
-lst.sort()
-lst.reverse()
-lst.index(10)
-lst.count(1)
-lst.clear()
-lst.copy()
+a, b, c = 1, 2, 3
 ```
 
-## Tuples
-
+### Type Conversion
 ```python
-tup = (1, 2, 3)
-tup[0]          # 1
-tup.count(2)    # 1
-tup.index(3)    # 2
+int("7")          # Converts string to integer
+str(100)          # Converts integer to string
+float("5.5")      # Converts string to float
 ```
 
-## Dictionaries
+## 2. Data Structures
 
+### Lists
 ```python
-d = {"a": 1, "b": 2}
-d['a']             # 1
-d.get('c', 0)      # 0
-d['c'] = 3
-d.keys()
-d.values()
-d.items()
-d.pop('a')
-d.update({"d": 4})
-d.clear()
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")     # Add to end
+fruits.remove("banana")     # Remove value
+print(fruits[0])            # Indexing
+print(fruits[-1])           # Last item
+fruits[1:3]                 # Slicing
 ```
 
-## Sets
-
+### Tuples (immutable lists)
 ```python
-s = {1, 2, 3}
-s.add(4)
-s.remove(2)
-s.discard(5)    # No error if not present
-s.union({5, 6})
-s.intersection({2, 3, 4})
-s.difference({1})
-s.clear()
+coords = (1, 2)
 ```
 
-## Control Flow
-
+### Dictionaries
 ```python
-# If-elif-else
-if x > 5:
-    print("Big")
-elif x == 5:
-    print("Equal")
+person = {"name": "Bob", "age": 25}
+person["age"] = 26
+print(person.get("name"))
+for key, value in person.items():
+    print(key, value)
+```
+
+### Sets
+```python
+colors = {"red", "green", "blue"}
+colors.add("yellow")
+colors.remove("red")
+```
+
+## 3. Operators
+
+### Arithmetic
+```python
+x + y    # Addition
+x - y    # Subtraction
+x * y    # Multiplication
+x / y    # Division
+x // y   # Floor Division
+x % y    # Modulus
+x ** y   # Exponentiation
+```
+
+### Comparison
+```python
+x == y   # Equal to
+x != y   # Not equal to
+x > y    # Greater than
+x < y    # Less than
+x >= y   # Greater or equal
+x <= y   # Less or equal
+```
+
+### Logical
+```python
+and, or, not
+```
+
+### Membership
+```python
+"a" in "cat"          # True
+3 not in [1, 2, 3]    # False
+```
+
+## 4. Control Flow
+
+### If-Else
+```python
+if x > 10:
+    print("x is large")
+elif x == 10:
+    print("x is ten")
 else:
-    print("Small")
-
-# For loop
-for i in range(5):
-    print(i)
-
-for item in lst:
-    print(item)
-
-# While loop
-i = 0
-while i < 5:
-    print(i)
-    i += 1
-
-# Break, Continue, Pass
-for i in range(5):
-    if i == 3:
-        break
-    if i == 2:
-        continue
-    pass
+    print("x is small")
 ```
 
-## Functions
+### Loops
 
+#### For Loop
+```python
+for i in range(5):          # 0 to 4
+    print(i)
+
+for item in ["a", "b", "c"]:
+    print(item)
+```
+
+#### While Loop
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+
+#### Break & Continue
+```python
+for i in range(10):
+    if i == 5:
+        break     # Exits loop
+    if i % 2 == 0:
+        continue  # Skips even numbers
+    print(i)
+```
+
+## 5. Functions
+
+### Defining Functions
 ```python
 def greet(name):
-    return f"Hello, {name}"
+    print(f"Hello, {name}!")
 
-def add(a, b=5):
-    return a + b
-
-def multi_return():
-    return 1, 2, 3
-
-def variable_args(*args, **kwargs):
-    print(args, kwargs)
-
-# Lambda
-add = lambda x, y: x + y
+greet("Alice")
 ```
 
-## Classes & Objects
+### Return Statement
+```python
+def add(a, b):
+    return a + b
+```
+
+### Default Arguments
+```python
+def power(x, y=2):
+    return x ** y
+```
+
+### Lambda Functions
+```python
+square = lambda x: x*x
+print(square(5))
+```
+
+## 6. Classes & Objects
 
 ```python
-class Person:
+class Dog:
     def __init__(self, name):
         self.name = name
+    
+    def bark(self):
+        print(f"{self.name} says woof!")
 
-    def hello(self):
-        print(f"Hello, {self.name}")
-
-p = Person("Alice")
-p.hello()
+my_dog = Dog("Rex")
+my_dog.bark()
 ```
 
-## Exceptions
+## 7. Exception Handling
 
 ```python
 try:
-    x = 1 / 0
-except ZeroDivisionError as e:
-    print("Error:", e)
+    val = int(input("Enter a number: "))
+except ValueError:
+    print("Not a number!")
+else:
+    print("You entered:", val)
 finally:
-    print("Done")
+    print("Done!")
 ```
 
-## Useful Built-in Functions
+## 8. Modules & Packages
 
+### Importing
 ```python
-abs(-5)           # 5
-round(5.678, 2)   # 5.68
-min([1, 2, 3])    # 1
-max([1, 2, 3])    # 3
-sum([1, 2, 3])    # 6
-sorted([3, 1, 2]) # [1, 2, 3]
-enumerate(['a','b']) # [(0, 'a'), (1, 'b')]
-zip([1,2],[3,4])  # [(1,3), (2,4)]
-map(str, [1,2,3]) # ['1','2','3']
-filter(lambda x:x>1, [1,2,3]) # [2,3]
-list(map(int, ['1','2']))
+import math
+from math import sqrt
+import my_module as mm
 ```
 
-## File I/O
+### Installing Packages
+```bash
+pip install requests
+```
+
+## 9. Working with Files
 
 ```python
-with open("file.txt", "r") as f:
-    content = f.read()
-
+# Write to file
 with open("file.txt", "w") as f:
     f.write("Hello!")
 
-with open("file.txt", "a") as f:
-    f.write("Append this line")
+# Read from file
+with open("file.txt", "r") as f:
+    content = f.read()
 ```
 
-## Modules & Imports
+## 10. Useful Built-in Functions
 
 ```python
-import math
-import sys
-from math import sqrt
-import random as rnd
-
-# List installed modules
-help("modules")
+len([1, 2, 3])             # Length
+sum([1, 2, 3])             # Sum
+max([1, 2, 3])             # Maximum
+min([1, 2, 3])             # Minimum
+sorted([3, 1, 2])          # Sorts list
+list(range(5))             # [0, 1, 2, 3, 4]
+enumerate(['a','b','c'])   # Returns index & value
+zip([1,2], ['a','b'])      # Pairs items
 ```
 
-## Common Standard Libraries
+## 11. List Comprehensions
 
 ```python
-import os         # OS functions
-import sys        # System-specific parameters
-import datetime   # Dates and times
-import time       # Time-related functions
-import collections# Specialized container datatypes
-import json       # JSON encoding/decoding
-import re         # Regular expressions
-import itertools  # Advanced iteration functions
+squares = [x*x for x in range(10)]
+evens = [x for x in range(10) if x%2 == 0]
 ```
 
-## List Comprehensions
+## 12. Useful Standard Libraries
+
+- **os**: Interact with operating system
+    ```python
+    import os
+    os.getcwd()      # Current directory
+    os.listdir()     # List files
+    ```
+- **sys**: System-specific parameters and functions
+    ```python
+    import sys
+    sys.argv
+    ```
+- **datetime**: Date and time utilities
+    ```python
+    from datetime import datetime
+    now = datetime.now()
+    ```
+- **random**: Random number generation
+    ```python
+    import random
+    random.randint(1, 10)
+    random.choice([1,2,3])
+    ```
+
+## 13. Advanced: Decorators
 
 ```python
-squares = [x**2 for x in range(10)]
-evens = [x for x in range(10) if x % 2 == 0]
-pairs = [(x, y) for x in range(3) for y in range(3)]
-```
-
-## Useful Tips
-
-- Indentation is crucial (use 4 spaces)
-- Use `pip install package` for external packages
-- Use `help(obj)` or `dir(obj)` for introspection
-- Use `__name__ == "__main__"` to make code runnable as script
-
-## Virtual Environment
-
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-deactivate
-```
-
-## Decorators
-
-```python
-def decorator(func):
-    def wrapper(*args, **kwargs):
+def my_decorator(func):
+    def wrapper():
         print("Before")
-        result = func(*args, **kwargs)
+        func()
         print("After")
-        return result
     return wrapper
 
-@decorator
-def say_hello():
-    print("Hello")
+@my_decorator
+def say_hi():
+    print("Hi!")
+
+say_hi()
 ```
 
-## Generators
+## 14. Advanced: Generators
 
 ```python
 def count_up_to(n):
-    i = 1
-    while i <= n:
-        yield i
-        i += 1
+    num = 1
+    while num <= n:
+        yield num
+        num += 1
 
-for num in count_up_to(5):
-    print(num)
-```
-
-## Useful One-liners
-
-```python
-[x for x in range(100) if x%2 == 0]           # Even numbers
-{v:k for k,v in d.items()}                    # Swap dict keys/values
-''.join(reversed('hello'))                    # Reverse string
-sum(map(int, input().split()))                # Sum from input
-```
-
-## Type Hints
-
-```python
-def greet(name: str) -> str:
-    return "Hello " + name
+for i in count_up_to(5):
+    print(i)
 ```
 
 ---
 
-**References:**
-- [Python Docs](https://docs.python.org/3/)
-- [Real Python](https://realpython.com/)
+**Python is simple, intuitive, and powerful. Use this cheat sheet for quick reference and to improve your coding efficiency!**
